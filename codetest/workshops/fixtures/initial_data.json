@@ -1,0 +1,72 @@
+[
+    {
+        "pk": 1, 
+        "model": "workshops.workshop", 
+        "fields": {
+            "title": "Fundamentals of River Rescue",
+            "start_time": "2013-11-11 13:00:00", 
+            "end_time": "2013-11-11 17:00:00",
+            "tuition": 100
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "workshops.workshop", 
+        "fields": {
+            "title": "Betting the Farm: Risk Propensity and Field Applications",
+            "start_time": "2013-11-12 13:00:00", 
+            "end_time": "2013-11-12 17:00:00",
+            "tuition": 300
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "workshops.workshop", 
+        "fields": {
+            "title": "Training Your Staff to Be Risk Managers",
+            "start_time": "2013-11-11 08:00:00", 
+            "end_time": "2013-11-11 12:00:00",
+            "tuition": 200
+        }
+    },
+    {
+        "pk": 4, 
+        "model": "workshops.workshop", 
+        "fields": {
+            "title": "When Judgement Fails",
+            "start_time": "2013-11-10 08:00:00", 
+            "end_time": "2013-11-12 17:00:00",
+            "tuition": 500
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "workshops.workshop", 
+        "fields": {
+            "title": "Internal and External Critical Incident Reviews",
+            "start_time": "2013-11-12 08:00:00", 
+            "end_time": "2013-11-12 12:00:00",
+            "tuition": 200
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "workshops.workshop", 
+        "fields": {
+            "title": "When to Retire Climbing Gear",
+            "start_time": "2013-11-12 08:00:00", 
+            "end_time": "2013-11-12 12:00:00",
+            "tuition": 250
+        }
+    },
+    {
+        "pk": 7, 
+        "model": "workshops.workshop", 
+        "fields": {
+            "title": "Assessing Avalanche Terrain Traps",
+            "start_time": "2010-11-11 08:00:00", 
+            "end_time": "2010-11-11 12:00:00",
+            "tuition": 350
+        }
+    }
+]
