@@ -45,7 +45,7 @@ requires input from the project owner. Be ready to discuss improvements:
 what is the problem you're trying to solve, how would you solve it and
 how long might it take.
 
-Email steve_smith@nols.edu if any of these instructions are unclear; 
+Email developer@nols.edu if any of these instructions are unclear; 
 however, please take the initiative to make what you think are
 appropriate decisions to move the solution forward. Think of this as a
 proof-of-concept from which to start a conversation with the project 
