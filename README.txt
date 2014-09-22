@@ -31,7 +31,7 @@ potential workshop conflicts.
 Software:
     * Use Python 2.7 or greater
     * Use SQLite for the backend
-    * Use Django 1.6.5 or greater
+    * Use Django 1.6.10 or greater
 
 We've provided you with a project with settings as well as basic
 login urls and templates. We have also provided an initial_data.json
