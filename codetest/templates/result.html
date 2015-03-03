@@ -5,7 +5,11 @@
     <title></title>
 </head>
 <body>
+{% if workshop_to_add %}
 You have registered for "{{ workshop_to_add.title }}" workshop
+{% elif workshop_to_remove %}
+You have removed "{{ workshop_to_remove.title }}" workshop from your registration
+{% endif %}
 
 <a href="{% url 'profile' %}"> View all your workshops </a>
 

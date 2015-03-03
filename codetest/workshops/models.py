@@ -12,7 +12,6 @@ class Workshop(models.Model):
         return self.title
 
 
-
 class Registration(models.Model):
     user=models.ForeignKey(User)
     workshop = models.ForeignKey(Workshop, null=True)

@@ -20,7 +20,7 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/accounts/profile')
+                return HttpResponseRedirect(reverse('profile'))
     return render_to_response('login/login.html', context_instance=RequestContext(request))
 
 @login_required(login_url='/login_auth')
@@ -38,7 +38,19 @@ def overlap(ws1, ws2):
         return True
     return False
 
-def result(request,workshop_id):
+@login_required(login_url='/login_auth')
+def remove_result(request, workshop_id):
+       workshop_to_remove=get_object_or_404(Workshop,pk=workshop_id)
+       reg_obj=get_object_or_404(Registration,user=request.user,workshop=workshop_to_remove)
+       reg_obj.workshop = None
+       reg_obj.save()
+       del reg_obj
+       template = loader.get_template('result.html')
+       c = RequestContext(request,{'workshop_to_remove':workshop_to_remove})
+       return HttpResponse(template.render(c))
+
+@login_required(login_url='/login_auth')
+def add_result(request,workshop_id):
        workshop_to_add = get_object_or_404(Workshop, pk=workshop_id)
        user_to_add = request.user
        user_workshops = user_to_add.workshop_set.all()
@@ -51,7 +63,7 @@ def result(request,workshop_id):
             new_reg.save()
        else:
            return HttpResponse('You already signed up for this workshop')
-       c = RequestContext(request,{'workshop_registered':workshop_to_add})
+       c = RequestContext(request,{'workshop_to_add':workshop_to_add})
        template = loader.get_template('result.html')
        return HttpResponse(template.render(c))
 

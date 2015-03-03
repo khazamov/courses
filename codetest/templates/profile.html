@@ -20,7 +20,7 @@
 
 {% if workshops_registered  %}
      <br>
-      Please, review list of workshops you have registered:
+      Please, review list of workshops you have registered. Click on selected workshop to remove it from your list.
 
     <div class="list-container">
 
@@ -28,7 +28,7 @@
              {% for workshop in workshops_registered %}
           <li>
             <p name="choice" id="choice{{ forloop.counter }}"  value="{{ workshop.id }}"></p>
-
+            <a href="{% url 'remove_result' workshop.id %}" target="_blank">
               <div class="date">
                 <p class="day">{{ workshop.start_time.day }} </p>
                 <p class="month">{{workshop.start_time|date:"M"}} </p>
