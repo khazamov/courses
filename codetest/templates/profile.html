@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href="{% static 'codetest/cnstyle.css' %}">
+    <link rel='stylesheet prefetch' href="{% static 'codetest/ui-el.css' %}">
+
+</head>
+<body>
+
+<a class="btn btn-primary btn-large " href="{% url 'index' %}"> List of all courses available </a>
+<a class="btn btn-primary btn-large " href = "{% url 'auth_logout' %}"> Logout </a>
+
+
+{% if user.is_authenticated %}
+
+    <p> Welcome, {{ user.username }}. Thanks for logging in. </p>
+
+{% if workshops_registered  %}
+     <br>
+      Please, review list of workshops you have registered:
+
+    <div class="list-container">
+
+        <ul class="scale-up-hover-list">
+             {% for workshop in workshops_registered %}
+          <li>
+            <p name="choice" id="choice{{ forloop.counter }}"  value="{{ workshop.id }}"></p>
+
+              <div class="date">
+                <p class="day">{{ workshop.start_time.day }} </p>
+                <p class="month">{{workshop.start_time|date:"M"}} </p>
+
+              </div>
+              <div class="item-info-container">
+                <h1>{{ workshop.title }}</h1>
+                <p class="item-description">
+                  Tuition: {{ workshop.tuition}}
+                </p>
+                   <p class="item-description">
+                  Year offered: {{ workshop.start_time.year}}
+                </p>
+              </div>
+            </a>
+          </li>
+{% endfor %}
+
+        </ul>
+      </div>
+
+
+
+{% else %}
+
+    No registered workshops yet
+{% endif %}
+
+{% else %}
+
+    <p> Welcome, new user. Please log in. </p>
+
+{% endif %}
+
+
+
+
+
+</body>
+</html>
