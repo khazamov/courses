@@ -27,6 +27,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -64,6 +65,47 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}
+
+
+
+LOGGING={
+        'version': 1,
+        'disable_existing_loggers': False,
+        'root': {
+            'level': 'DEBUG',
+            'handlers': ['console']
+        },
+        'formatters': {
+            'verbose': {
+                'format': '[%(levelname)s|%(asctime)s] %(name)s > %(message)s'
+            },
+            'simple': {
+                'format': '%(levelname)s %(message)s'
+            },
+        },
+        'handlers': {
+            'console': {
+                'level': 'INFO',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            },
+        },
+        'loggers': {
+            'otree.test.core': {
+                'handlers': ['console'],
+                'propagate': False,
+                'level': 'INFO',
+            },
+        }
+    }
+LOGGING_CONFIG=None
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -82,5 +124,7 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = ''
+STATICFILES_DIRS = ( os.path.join('static'), )
 
 TEMPLATE_DIRS = ('/'.join([BASE_DIR, 'templates']),)

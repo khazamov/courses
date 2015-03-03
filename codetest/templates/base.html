@@ -1,9 +1,56 @@
 <html>
 <head>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
+
 </head>
 <body>
+{% load staticfiles  %}
+
+<link rel='stylesheet prefetch' href="{% static 'codetest/cnstyle.css' %}">
+<link rel='stylesheet prefetch' href="{% static 'codetest/ui-el.css' %}">
+<script src='http://codepen.io/assets/libs/fullpage/jquery.js'> </script>
+<script src="{% static 'codetest/ccodepen.js' %}"> </script>
+
 {% block content %}
+
+<a class="btn btn-primary btn-large" href="{% url 'profile' %}"> My Profile </a>
+
+
+{% csrf_token %}
+
+    <div class="list-container">
+        <h1>You are just a click away from signing up for an awesome Workshop!</h1>
+
+        <ul class="scale-up-hover-list">
+             {% for workshop in workshop_list %}
+          <li>
+            <p name="choice" id="choice{{ forloop.counter }}"  value="{{ workshop.id }}"></p>
+            <a href="{% url 'result' workshop.id %}" target="_blank">
+              <div class="date">
+                <p class="day">{{ workshop.start_time.day }} </p>
+                <p class="month">{{workshop.start_time|date:"M"}} </p>
+
+              </div>
+              <div class="item-info-container">
+                <h1>{{ workshop.title }}</h1>
+                <p class="item-description">
+                  Tuition: {{ workshop.tuition}}
+                </p>
+                   <p class="item-description">
+                  Year offered: {{ workshop.start_time.year}}
+                </p>
+              </div>
+            </a>
+          </li>
+{% endfor %}
+
+        </ul>
+      </div>
+
+
 {% endblock %}
+
 </body>
 </html>
 

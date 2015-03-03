@@ -1,0 +1,53 @@
+<html>
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+{% load staticfiles  %}
+
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href="{% static 'codetest/logui.css' %}">
+<link rel='stylesheet prefetch' href="{% static 'codetest/ui-el.css' %}">
+</head>
+
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+<div class="login">
+<form method="GET" action="{% url 'auth_login' %}">
+
+{% csrf_token %}
+
+     {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+     {% endif %}
+
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Login</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="username" name="username" id="username">
+
+
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" name="password" placeholder="password" id="password">
+
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+				<input type="submit" class="btn btn-primary btn-large btn-block" value="login" />
+
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}
+
+</html>
