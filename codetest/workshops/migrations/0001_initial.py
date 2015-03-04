@@ -28,6 +28,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('title', models.CharField(max_length=100)),
                 ('tuition', models.PositiveIntegerField()),
+                ('capacity', models.PositiveIntegerField()),
                 ('start_time', models.DateTimeField()),
                 ('end_time', models.DateTimeField()),
                 ('members', models.ManyToManyField(to=settings.AUTH_USER_MODEL, null=True, through='workshops.Registration')),
@@ -37,7 +38,7 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.AddField(
-            model_name='login',
+            model_name='registration',
             name='workshop',
             field=models.ForeignKey(to='workshops.Workshop', null=True),
             preserve_default=True,

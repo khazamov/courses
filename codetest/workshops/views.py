@@ -1,7 +1,7 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.core.urlresolvers import reverse
-from workshops.models import Workshop,Registration
+from workshops.models import Workshop, Registration
 from django.shortcuts import render_to_response,get_object_or_404,redirect,render
 from django.contrib.auth import logout, authenticate,login
 from django.contrib.auth.decorators import login_required
@@ -51,9 +51,14 @@ def remove_result(request, workshop_id):
 
 @login_required(login_url='/login_auth')
 def add_result(request,workshop_id):
-       workshop_to_add = get_object_or_404(Workshop, pk=workshop_id)
+
        user_to_add = request.user
        user_workshops = user_to_add.workshop_set.all()
+       workshop_to_add = get_object_or_404(Workshop, pk=workshop_id)
+
+       if not workshop_to_add.seats_left():
+           return HttpResponse('No seats left for this workshop. Please, choose different date or wait for another offering')
+
        for workshop in user_workshops:
            if overlap(workshop_to_add, workshop):
                return HttpResponse('Workshops can\'t overlap')

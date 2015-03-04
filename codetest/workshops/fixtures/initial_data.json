@@ -6,7 +6,8 @@
             "title": "Fundamentals of River Rescue",
             "start_time": "2013-11-11 13:00:00", 
             "end_time": "2013-11-11 17:00:00",
-            "tuition": 100
+            "tuition": 100,
+	    "capacity": 10	
         }
     },
     {
@@ -16,7 +17,9 @@
             "title": "Betting the Farm: Risk Propensity and Field Applications",
             "start_time": "2013-11-12 13:00:00", 
             "end_time": "2013-11-12 17:00:00",
-            "tuition": 300
+            "tuition": 300,
+	    "capacity": 15		
+
         }
     }, 
     {
@@ -26,7 +29,8 @@
             "title": "Training Your Staff to Be Risk Managers",
             "start_time": "2013-11-11 08:00:00", 
             "end_time": "2013-11-11 12:00:00",
-            "tuition": 200
+            "tuition": 200,
+	    "capacity": 20	
         }
     },
     {
@@ -36,7 +40,8 @@
             "title": "When Judgement Fails",
             "start_time": "2013-11-10 08:00:00", 
             "end_time": "2013-11-12 17:00:00",
-            "tuition": 500
+            "tuition": 500,
+	    "capacity": 5
         }
     }, 
     {
@@ -46,7 +51,9 @@
             "title": "Internal and External Critical Incident Reviews",
             "start_time": "2013-11-12 08:00:00", 
             "end_time": "2013-11-12 12:00:00",
-            "tuition": 200
+            "tuition": 200,
+            "capacity": 10	
+          	
         }
     }, 
     {
@@ -56,7 +63,8 @@
             "title": "When to Retire Climbing Gear",
             "start_time": "2013-11-12 08:00:00", 
             "end_time": "2013-11-12 12:00:00",
-            "tuition": 250
+            "tuition": 250,
+	    "capacity": 7
         }
     },
     {
@@ -66,7 +74,8 @@
             "title": "Assessing Avalanche Terrain Traps",
             "start_time": "2010-11-11 08:00:00", 
             "end_time": "2010-11-11 12:00:00",
-            "tuition": 350
+            "tuition": 350,
+	    "capacity":7
         }
     }
 ]
