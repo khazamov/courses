@@ -17,5 +17,4 @@ urlpatterns = patterns(
 
 
 
-    #url(r'^workshops', include('workshops.urls',namespace='workshops')),
 )

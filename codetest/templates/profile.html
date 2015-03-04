@@ -4,21 +4,21 @@
 {% load staticfiles %}
 
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <link rel='stylesheet prefetch' href="{% static 'codetest/cnstyle.css' %}">
-    <link rel='stylesheet prefetch' href="{% static 'codetest/ui-el.css' %}">
+    <link rel='stylesheet prefetch' href="{% static 'codetest/css/cnstyle.css' %}">
+    <link rel='stylesheet prefetch' href="{% static 'codetest/css/ui-el.css' %}">
 
-    <link rel='stylesheet prefetch' href="{% static 'codetest/workshop.css' %}">
+    <link rel='stylesheet prefetch' href="{% static 'codetest/css/workshop.css' %}">
 
 
-    <script src="{% static 'codetest/modernizr.js' %}"></script>
+
 
 </head>
 <body>
 
 
 
-
-<a class="btn btn-primary btn-large " href = "{% url 'auth_logout' %}"> Logout </a>
+<a class= "learn" href = "{% url 'index'  %}"> Main </a>
+<a class= "learn" href = "{% url 'auth_logout' %}"> Logout </a>
 
 
 {% if user.is_authenticated %}
@@ -51,57 +51,16 @@
 		</div>
 	</li>
     {% endfor %}
-    <li>
-		<div class="card-front">
-			<h3><b>Main</b></h3>
 
-		</div>
-        <a href="{% url 'index'  %}">
-		<div class="card-back" >
-
-      <h2><b>See all workshops</b></h2>
-
-		</div></a>
-
-		<!-- Content -->
-
-	</li>
     </ul>
     </div>
 
 
-    <div class="list-container">
-
-        <ul class="scale-up-hover-list">
-             {% for workshop in workshops_registered %}
-          <li>
-            <p name="choice" id="choice{{ forloop.counter }}"  value="{{ workshop.id }}"></p>
-            <a href="{% url 'remove_result' workshop.id %}" target="_blank">
-              <div class="date">
-                <p class="day">{{ workshop.start_time.day }} </p>
-                <p class="month">{{workshop.start_time|date:"M"}} </p>
-
-              </div>
-              <div class="item-info-container">
-                <h1>{{ workshop.title }}</h1>
-                <p class="item-description">
-                  Tuition: {{ workshop.tuition}}
-                </p>
-                   <p class="item-description">
-                  Year offered: {{ workshop.start_time.year}}
-                </p>
-              </div>
-            </a>
-          </li>
-{% endfor %}
-
-        </ul>
-      </div>
 
 
 
 {% else %}
-
+   <br>
     No registered workshops yet
 {% endif %}
 

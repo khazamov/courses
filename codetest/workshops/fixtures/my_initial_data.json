@@ -7,7 +7,7 @@
             "start_time": "2013-11-11 13:00:00", 
             "end_time": "2013-11-11 17:00:00",
             "tuition": 100,
-	    "capacity": 10	
+	        "capacity": 10
         }
     },
     {
@@ -18,7 +18,7 @@
             "start_time": "2013-11-12 13:00:00", 
             "end_time": "2013-11-12 17:00:00",
             "tuition": 300,
-	    "capacity": 15		
+	        "capacity": 15
 
         }
     }, 
@@ -30,7 +30,7 @@
             "start_time": "2013-11-11 08:00:00", 
             "end_time": "2013-11-11 12:00:00",
             "tuition": 200,
-	    "capacity": 20	
+	        "capacity": 20
         }
     },
     {
@@ -41,7 +41,7 @@
             "start_time": "2013-11-10 08:00:00", 
             "end_time": "2013-11-12 17:00:00",
             "tuition": 500,
-	    "capacity": 5
+	        "capacity": 5
         }
     }, 
     {
@@ -64,7 +64,7 @@
             "start_time": "2013-11-12 08:00:00", 
             "end_time": "2013-11-12 12:00:00",
             "tuition": 250,
-	    "capacity": 7
+	        "capacity": 7
         }
     },
     {
@@ -75,7 +75,7 @@
             "start_time": "2010-11-11 08:00:00", 
             "end_time": "2010-11-11 12:00:00",
             "tuition": 350,
-	    "capacity":7
+	        "capacity":7
         }
     }
 ]

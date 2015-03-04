@@ -33,12 +33,9 @@ def profile(request):
     return HttpResponse(template.render(c))
 
 
-def overlap(ws1, ws2):
-    if ws1.start_time < ws2.end_time or ws1.start_time < ws2.end_time:
-        return True
-    return False
 
-@login_required(login_url='/login_auth')
+
+@login_required(login_url='url "login_auth"')
 def remove_result(request, workshop_id):
        workshop_to_remove=get_object_or_404(Workshop,pk=workshop_id)
        reg_obj=get_object_or_404(Registration,user=request.user,workshop=workshop_to_remove)
@@ -49,28 +46,20 @@ def remove_result(request, workshop_id):
        c = RequestContext(request,{'workshop_to_remove':workshop_to_remove})
        return HttpResponse(template.render(c))
 
-@login_required(login_url='/login_auth')
+@login_required(login_url='url "login_auth"')
 def add_result(request,workshop_id):
-
+    try:
        user_to_add = request.user
-       user_workshops = user_to_add.workshop_set.all()
        workshop_to_add = get_object_or_404(Workshop, pk=workshop_id)
-
-       if not workshop_to_add.seats_left():
-           return HttpResponse('No seats left for this workshop. Please, choose different date or wait for another offering')
-
-       for workshop in user_workshops:
-           if overlap(workshop_to_add, workshop):
-               return HttpResponse('Workshops can\'t overlap')
-
-       if workshop_to_add not in user_workshops:
-            new_reg = Registration(user=user_to_add,workshop=workshop_to_add)
-            new_reg.save()
-       else:
-           return HttpResponse('You already signed up for this workshop')
+       reg = Registration.create(user_to_add,workshop_to_add)
+       reg.save()
        c = RequestContext(request,{'workshop_to_add':workshop_to_add})
        template = loader.get_template('result.html')
        return HttpResponse(template.render(c))
+    except Exception, msg:
+        c = RequestContext(request,{'error_message':msg})
+        template = loader.get_template('error.html')
+        return HttpResponse(template.render(c))
 
 
 # def profile(request, choice_id):
