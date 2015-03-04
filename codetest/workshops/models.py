@@ -13,6 +13,9 @@ class Workshop(models.Model):
     def seats_left(self):
         return self.capacity - len(self.members.all())
 
+    def duration(self):
+        return self.end_time - self.start_time
+
     def __unicode__(self):
         return self.title
 

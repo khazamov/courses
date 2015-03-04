@@ -4,7 +4,7 @@ body {-webkit-transform: translate3d(0, 0, 0);}
           padding: 1em;
           width: 280px;
           font-family: 'FontSite Sans', sans-serif;
-          background: white;
+          background-color: transparent ;
         }
         .list-container h1 {
           font-size: 1em;
@@ -19,7 +19,7 @@ body {-webkit-transform: translate3d(0, 0, 0);}
         .scale-up-hover-list li {
           margin: 0;
           padding: .75em;
-          background-color: white;
+          background-color: transparent;
           border-top: none;
           border-right: 0 solid #eee;
           border-bottom: .05em solid #eee;

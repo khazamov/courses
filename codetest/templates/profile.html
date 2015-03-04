@@ -7,20 +7,68 @@
     <link rel='stylesheet prefetch' href="{% static 'codetest/cnstyle.css' %}">
     <link rel='stylesheet prefetch' href="{% static 'codetest/ui-el.css' %}">
 
+    <link rel='stylesheet prefetch' href="{% static 'codetest/workshop.css' %}">
+
+
+    <script src="{% static 'codetest/modernizr.js' %}"></script>
+
 </head>
 <body>
 
-<a class="btn btn-primary btn-large " href="{% url 'index' %}"> List of all courses available </a>
+
+
+
 <a class="btn btn-primary btn-large " href = "{% url 'auth_logout' %}"> Logout </a>
 
 
 {% if user.is_authenticated %}
 
-    <p> Welcome, {{ user.username }}. Thanks for logging in. </p>
+
 
 {% if workshops_registered  %}
-     <br>
-      Please, review list of workshops you have registered. Click on selected workshop to remove it from your list.
+
+
+<div class="responsive">
+<ul class="content">
+{% for workshop in  workshops_registered %}
+	<!-- 1 -->
+	<li>
+		<div class="card-front">
+			<h3><b>{{ workshop.title }}</b></h3>
+			<p> Start date: {{ workshop.start_time.day }} {{ workshop.start_time|date:'M' }} {{ workshop.start_time.year }}</p>
+            <p> Tuition: {{ workshop.tuition  }} </p>
+		</div>
+        <a href="{% url 'remove_result' workshop.id %}">
+		<div class="card-back" >
+
+      <h2><b>Click to remove</b></h2>
+
+		</div></a>
+
+		<!-- Content -->
+		<div class="all-content">
+			<h1>Duration: {{ workshop.duration }} hours</h1>
+		</div>
+	</li>
+    {% endfor %}
+    <li>
+		<div class="card-front">
+			<h3><b>Main</b></h3>
+
+		</div>
+        <a href="{% url 'index'  %}">
+		<div class="card-back" >
+
+      <h2><b>See all workshops</b></h2>
+
+		</div></a>
+
+		<!-- Content -->
+
+	</li>
+    </ul>
+    </div>
+
 
     <div class="list-container">
 
