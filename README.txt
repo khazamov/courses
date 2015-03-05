@@ -54,5 +54,10 @@ owner.
 Quickstart:
 pip install -r requirements.txt
 cd codetest
+python manage.py makemigrations
+python manage.py migrate workshops 0001
 python manage.py syncdb
+python manage.py  loaddata ./workshops/fixtures/my_initial_data.json (renamed so tests can use it too)
 python manage.py runserver
+
+admin:password for django admin
