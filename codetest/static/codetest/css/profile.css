@@ -1,0 +1,17 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+body {
+  color: #FFF;
+  background-color: #FD940A;
+  background-image: -webkit-radial-gradient(circle, #f9a72b 0%, #336acd 70%, #3498DB 100%);
+  background-image: radial-gradient(circle, #98cbed  0%, #55a9e1 70%, #3498DB  100%);
+}
