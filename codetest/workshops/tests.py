@@ -4,13 +4,6 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response,get_object_or_404
 import pdb
 
-#earliest end - latest start
-# def _overlap(ws1, ws2):
-#     latest_start = max(ws1.start_time, ws2.start_time)
-#     earliest_end = min(ws1.end_time, ws2.end_time)
-#     return latest_start <= earliest_end
-#
-
 
 class WorkshopTestClass(TestCase):
 
