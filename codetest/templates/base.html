@@ -25,7 +25,7 @@
 	<li>
 		<div class="card-front">
 			<h3><b>{{ workshop.title }}</b></h3>
-			<p> Start date: {{ workshop.start_time.day }} {{ workshop.start_time|date:'M' }} {{ workshop.start_time.year }}</p>
+			<p> Start date: {{ workshop.start_time.day }} {{ workshop.start_time|date:'M' }} {{ workshop.start_time.year }}, {{ workshop.start_time|time:'H' }}:{{ workshop.start_time|time:'i' }}</p>
             <p> Tuition: {{ workshop.tuition  }} </p>
 		</div>
         <a href="{% url 'result' workshop.id %}">

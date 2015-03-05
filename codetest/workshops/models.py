@@ -2,8 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-#added capacity
-#more tuition - less capacity
+
 
 class Workshop(models.Model):
 
@@ -14,21 +13,25 @@ class Workshop(models.Model):
     end_time = models.DateTimeField()
     members=models.ManyToManyField(User, through='Registration', null=True)
 
+    #added capacity
+    #more tuition - less capacity
     def seats_left(self):
         return self.capacity - len(self.members.all())
 
+    #to be displayed on front page
     def duration(self):
         return self.end_time - self.start_time
 
     def __unicode__(self):
         return self.title
 
-#user1 = User.objects.create_user('omar',,'john@mail.ru','password')
 
 def _overlap(ws1, ws2):
-    if ws1.start_time < ws2.end_time or ws1.start_time < ws2.end_time:
-        return True
-    return False
+    latest_start = max(ws1.start_time, ws2.start_time)
+    earliest_end = min(ws1.end_time, ws2.end_time)
+    return latest_start <= earliest_end
+
+
 
 class Registration(models.Model):
     user=models.ForeignKey(User)
@@ -46,6 +49,3 @@ class Registration(models.Model):
         reg=cls(user=user,workshop=workshop)
         return reg
 
-    # def __init__(self):
-    #     self.workshop.capacity =- 1
-    #

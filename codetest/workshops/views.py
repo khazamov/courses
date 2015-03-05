@@ -7,8 +7,7 @@ from django.contrib.auth import logout, authenticate,login
 from django.contrib.auth.decorators import login_required
 import pdb
 
-#TODO: save login is working
-# have to consider a case when there are several reg objects corresponding to a single user
+
 def login_user(request):
     logout(request)
     username = password = ''
@@ -62,18 +61,6 @@ def add_result(request,workshop_id):
         return HttpResponse(template.render(c))
 
 
-# def profile(request, choice_id):
-#     p = get_object_or_404(Workshop,pk=choice_id)
-#     try:
-#         selected_workshop=p.choice_get(pk=request.POST['choice'])
-#     except:
-#         return render(request, 'workshops/profile.html', {
-#             'workshop':p,
-#             'error_msg': "You didn't selected a workshop",
-#         } )
-#     else:
-#         response = 'You are looking at workshop %s'
-#     return HttpResponse(response, selected_workshop)
 
 def index(request):
     workshop_list = Workshop.objects.all()

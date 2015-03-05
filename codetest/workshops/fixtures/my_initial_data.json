@@ -6,8 +6,8 @@
             "title": "Fundamentals of River Rescue",
             "start_time": "2013-11-11 13:00:00", 
             "end_time": "2013-11-11 17:00:00",
-            "tuition": 100,
-	        "capacity": 10
+            "tuition": "100",
+	        "capacity": "10"
         }
     },
     {

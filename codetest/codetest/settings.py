@@ -126,5 +126,5 @@ USE_L10N = True
 STATIC_URL = '/static/'
 STATIC_ROOT = ''
 STATICFILES_DIRS = ( os.path.join('static'), )
-
+FIXTURE_DIRS = ('/fixtures/',)
 TEMPLATE_DIRS = ('/'.join([BASE_DIR, 'templates']),)
